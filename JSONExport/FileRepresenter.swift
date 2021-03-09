@@ -272,17 +272,7 @@ class FileRepresenter{
 //                    description
 //                }
 //            """
-        descContent += """
-
-                override var description: String {
-                    let dic = toDictionary()
-                    return dic.jsonString(prettify: true)!
-                }
-
-                override var debugDescription: String {
-                    description
-                }
-            """
+        
     }
     
     /**
@@ -372,7 +362,7 @@ class FileRepresenter{
             fileContent += method.signature
             fileContent += method.bodyStart
             fileContent += method.body
-            for property in properties{
+            for property in properties {
                 var propertyHandlingStr = ""
                 if property.isArray{
                     if propertyTypeIsBasicType(property){
@@ -422,6 +412,19 @@ class FileRepresenter{
                     }
                 }
                 fileContent += propertyHandlingStr
+                if method.signature.contains("toDictionary()") {
+                    descContent = """
+
+                            override var description: String {
+                                let dic = toDictionary()
+                                return dic.jsonString(prettify: true)!
+                            }
+
+                            override var debugDescription: String {
+                                description
+                            }
+                        """
+                }
             }
             fileContent += method.returnStatement
             fileContent += method.bodyEnd
