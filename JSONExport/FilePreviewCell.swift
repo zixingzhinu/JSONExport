@@ -77,7 +77,7 @@ class FilePreviewCell: NSTableCellView, NSTextViewDelegate {
     @IBAction func toggleConstructors(_ sender: NSButtonCell)
     {
         if file != nil{
-            file.includeConstructors = (sender.state == NSControl.StateValue.off)
+            file.includeConstructors = (sender.state == NSControl.StateValue.on)
             textView.string = file.toString()
             
         }

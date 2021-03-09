@@ -77,6 +77,7 @@ class FileRepresenter{
     */
     var fileContent = ""
     
+    var descContent = ""
   
     /**
     Designated initializer
@@ -120,6 +121,13 @@ class FileRepresenter{
         appendUtilityMethods()
         fileContent = fileContent.replacingOccurrences(of: lowerCaseModelName, with:className.lowercaseFirstChar())
         fileContent = fileContent.replacingOccurrences(of: modelName, with:className)
+//        """
+//        override var description: String {
+//            let properties = ["属性1", "属性2", "属性3", "属性4"]
+//            return "\\(dictionaryWithValues(forKeys: properties))"
+//        }
+//        """
+        fileContent += descContent
         fileContent += lang.modelEnd
         return fileContent
     }
@@ -247,10 +255,34 @@ class FileRepresenter{
     func appendProperties()
     {
         fileContent += "\n"
-        for property in properties{
+//        descContent += "\n\toverride var description: String {\n\t\tlet properties = ["
+//        descContent += "\n\toverride var description: String {\n\t\t\"<\\(type(of: self)): \\(String(format: \"%p\", self))> "
+        for (index, property) in properties.enumerated() {
             
             fileContent += property.toString(false)
+//            descContent += "\"\(property.nativeName)\","
+//            descContent += "\"\(property.nativeName)\","
+//            if index != properties.count - 1 {
+//                descContent += " "
+//            }
         }
+//        descContent += "]\n\t\treturn \"\\(dictionaryWithValues(forKeys: properties))\"\n\t}\n\n"
+//        descContent += """
+//                override var debugDescription: String {
+//                    description
+//                }
+//            """
+        descContent += """
+
+                override var description: String {
+                    let dic = toDictionary()
+                    return dic.jsonString(prettify: true)!
+                }
+
+                override var debugDescription: String {
+                    description
+                }
+            """
     }
     
     /**
