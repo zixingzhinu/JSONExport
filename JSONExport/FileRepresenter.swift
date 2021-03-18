@@ -113,7 +113,7 @@ class FileRepresenter{
         }
         fileContent += definition
         //start the model content body
-        fileContent += "\(lang.modelStart)"
+        fileContent += " \(lang.modelStart)"
         
         appendProperties()
         appendSettersAndGetters()
@@ -323,11 +323,11 @@ class FileRepresenter{
     */
     func appendInitializers()
     {
-        if !includeConstructors{
+        if !includeConstructors {
             return
         }
         fileContent += "\n"
-        for constructor in lang.constructors{
+        for constructor in lang.constructors {
             if constructor.comment != nil{
                 fileContent += constructor.comment
             }

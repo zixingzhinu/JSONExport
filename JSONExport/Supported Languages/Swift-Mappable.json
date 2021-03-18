@@ -80,7 +80,7 @@
                        "forEachArrayOfCustomTypeProperty": "         <!VarName!> = aDecoder.decodeObject(forKey: \"<!JsonKeyName!>\") as? <!VarType!>\n",
                        "returnStatement": "",
                        "body": "",
-                       "comment": "\n    /**\n    * NSCoding required initializer.\n    * Fills the data from the passed decoder\n    */\n",
+                       "comment": "\n    ///\t NSCoding required initializer.\n    ///\t Fills the data from the passed decoder\n",
                        "bodyStart": "\n\t{\n"
                        },
                        {
@@ -91,7 +91,7 @@
                        "forEachArrayOfCustomTypeProperty": "\t\tif <!VarName!> != nil{\n\t\t\taCoder.encode(<!VarName!>, forKey: \"<!JsonKeyName!>\")\n\t\t}\n",
                        "returnStatement": "",
                        "body": "",
-                       "comment": "\n    /**\n    * NSCoding required method.\n    * Encodes mode properties into the decoder\n    */\n",
+                       "comment": "\n    ///\t NSCoding required method.\n    ///\t Encodes mode properties into the decoder\n",
                        "bodyStart": "\n\t{\n"
                        }
                        ],
@@ -112,7 +112,7 @@
     "constructors": [
                      {
                      "fetchBasicTypeWithSpecialNeedsPropertyFromMap": "",
-                     "bodyStart": "{\n\t\treturn <!ModelName!>()",
+                     "bodyStart": " {\n\t\treturn <!ModelName!>()",
                      "bodyEnd": "\n\t}\n",
                      "fetchBasicTypePropertyFromMap": "",
                      "signature": "\tclass func newInstance(map: Map) -> Mappable?",
@@ -122,7 +122,7 @@
                      },
                      {
                      "fetchBasicTypeWithSpecialNeedsPropertyFromMap": "",
-                     "bodyStart": "{",
+                     "bodyStart": " {",
                      "bodyEnd": "}\n",
                      "fetchBasicTypePropertyFromMap": "",
                      "signature": "\trequired init?(map: Map)",
@@ -132,7 +132,7 @@
                      },
                      {
                      "fetchBasicTypeWithSpecialNeedsPropertyFromMap": "",
-                     "bodyStart": "{",
+                     "bodyStart": " {",
                      "bodyEnd": "}\n",
                      "fetchBasicTypePropertyFromMap": "",
                      "signature": "\tprivate override init()",

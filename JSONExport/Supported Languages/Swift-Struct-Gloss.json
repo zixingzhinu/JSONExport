@@ -70,7 +70,7 @@
                        "returnStatement": "\t\t])\n",
                        "body": "\t\treturn jsonify([\n",
                        "comment": "\n\t//MARK: Encodable\n",
-                       "bodyStart": "{\n"
+                       "bodyStart": " {\n"
                        }
                        ],
     "dataTypes": {
@@ -89,7 +89,7 @@
     "constructors": [
                      {
                      "fetchBasicTypeWithSpecialNeedsPropertyFromMap": "",
-                     "bodyStart": "{\n",
+                     "bodyStart": " {\n",
                      "bodyEnd": "\t}\n",
                      "fetchBasicTypePropertyFromMap": "\t\t<!VarName!> = \"<!JsonKeyName!>\" <~~ json\n",
                      "signature": "\tpublic init?(json: JSON)",

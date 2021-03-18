@@ -78,7 +78,7 @@
     "constructors": [
                      {
                      "fetchBasicTypeWithSpecialNeedsPropertyFromMap": "",
-                     "bodyStart": "{\n",
+                     "bodyStart": " {\n",
                      "body": "",
                      "bodyEnd": "\t}\n",
                      "fetchBasicTypePropertyFromMap": "\t\tcase <!VarName!> = \"<!JsonKeyName!>\"\n",
@@ -89,7 +89,7 @@
                      },
                      {
                      "fetchBasicTypeWithSpecialNeedsPropertyFromMap": "",
-                     "bodyStart": "{\n\t\tlet values = try decoder.container(keyedBy: CodingKeys.self)\n",                     
+                     "bodyStart": " {\n\t\tlet values = try decoder.container(keyedBy: CodingKeys.self)\n",                     
                      "bodyEnd": "\t}\n",
                      "fetchBasicTypePropertyFromMap": "\t\t<!VarName!> = try values.decodeIfPresent(<!VarType!>.self, forKey: .<!VarName!>)\n",
                      "signature": "\tinit(from decoder: Decoder) throws ",
