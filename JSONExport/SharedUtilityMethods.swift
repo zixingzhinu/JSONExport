@@ -142,16 +142,18 @@ Creates and returns a dictionary who is built up by combining all the dictionary
 */
 func unionDictionaryFromArrayElements(_ array: NSArray) -> NSDictionary
 {
-    let dictionary = NSMutableDictionary()
+//    let dictionary = NSMutableDictionary()
+    var dictionary = [String: AnyObject]()
     for item in array{
-        if let dic = item as? NSDictionary{
-            //loop all over its keys
-            for key in dic.allKeys as! [String]{
-                dictionary[key] = dic[key]
-            }
+        if let dic = item as? Dictionary<String, AnyObject> {
+//            //loop all over its keys
+//            for key in dic.allKeys as! [String]{
+//                dictionary[key] = dic[key]
+//            }
+            dictionary = dictionary.merging(dic) { (first, _) -> AnyObject in return first }
         }
     }
-    return dictionary
+    return dictionary as NSDictionary
 }
 
 

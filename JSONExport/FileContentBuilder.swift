@@ -124,6 +124,7 @@ class FilesContentBuilder{
         file.parentClassName = parentClassName
         
         var exactMatchFound = false
+        #warning("这里从递归的files中寻找相似类并进行合并的做法有问题，因为JSON中不同level的字段名可能相同")
         if let similarFile = findSimilarFile(file, inFiles: files, exactMatchFound: &exactMatchFound){
             //there is a similar file
             if !exactMatchFound{
@@ -178,8 +179,10 @@ class FilesContentBuilder{
         for targetFile in files{
             
             exactMatchFound = bothFilesHasSamePropreties(file1: targetFile, file2: file)
-            
-            if exactMatchFound || targetFile.className == file.className{
+            #warning("这里依据files中查找类名是否相同判断不合理，因为json里边很可能不同level得到的字段名相同")
+//            if exactMatchFound || targetFile.className == file.className{
+            #warning("故而这里暂时将||改为&&，强行不找到相似类")
+            if exactMatchFound && targetFile.className == file.className{
                 similarFile = targetFile
                 
                 break
