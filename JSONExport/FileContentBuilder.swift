@@ -177,8 +177,8 @@ class FilesContentBuilder{
     func findSimilarFile(_ file: FileRepresenter, inFiles files: [FileRepresenter], exactMatchFound: inout Bool) -> FileRepresenter?{
         var similarFile : FileRepresenter?
         for targetFile in files{
-            
-            exactMatchFound = bothFilesHasSamePropreties(file1: targetFile, file2: file)
+            #warning("这里不再判断是否属性相同，因为不能把类进行合并，可能造成错误")
+//            exactMatchFound = bothFilesHasSamePropreties(file1: targetFile, file2: file)
             #warning("这里依据files中查找类名是否相同判断不合理，因为json里边很可能不同level得到的字段名相同")
 //            if exactMatchFound || targetFile.className == file.className{
             #warning("故而这里暂时将||改为&&，强行不找到相似类")
